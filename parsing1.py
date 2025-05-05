@@ -16,12 +16,12 @@ if response.status_code != 200:
     exit()
 
 soup = BeautifulSoup(response.text, "html.parser")
-movies_inf = soup.find_all("tr")[1:]  # Пропускаем заголовок таблицы
+movies_inf = soup.find_all("tr")[1:] 
 
 movies_data = []
 for row in movies_inf:
     cells = row.find_all("td")
-    if len(cells) >= 5:  # Проверяем, что есть все необходимые ячейки
+    if len(cells) >= 5: 
         movie = {
             'Место': cells[0].text.strip(),
             'Название': cells[1].text.strip(),
